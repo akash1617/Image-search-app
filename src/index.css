@@ -17,6 +17,7 @@
 
 body {
   color: var(--primary-color);
+  background-image: url(./assets/bg.jpg);
 }
 
 /* common css starts */
@@ -28,12 +29,15 @@ body {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
 .title {
   text-align: center;
   margin-top: var(--default-margin);
-  color: #7676d7;
+  color: #fd7e14;
+  font-size: 3rem;
+  font-weight: bolder;
 }
 
 .buttons {
@@ -48,7 +52,7 @@ body {
 .buttons .btn,
 .buttons .btn:active,
 .buttons .btn:focus {
-  background-color: var(--primary-color);
+  background-color: var(--bs-orange);
   box-shadow: none;
   outline: none;
   border: none;
@@ -59,12 +63,44 @@ body {
   text-align: center;
 }
 
-.loading {
+/* .loader {
   color: #6565d4;
   text-align: center;
   margin-top: 20px;
   font-size: 20px;
+} */
+
+/* &loader */
+
+.loader {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  animation: rotate 1s linear infinite;
+  
+box-shadow: 2px 2px 10px 5px red;
+position: absolute;
+top: 75%;
+left: 45%;
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(0.2);
+    border-radius: 10%;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.5);
+    border-radius: 50%;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.2);
+    border-radius: 10%;
+  }
+}
+  
+
+/* &loader */
 
 /* common css ends */
 
@@ -101,8 +137,8 @@ body {
 
 .filters > * {
   padding: 5px 10px;
-  background: #7676d7;
-  color: #fff;
+  background: #ffc107db;
+  color: #000;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -135,6 +171,8 @@ body {
 }
 
 /* images section ends */
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

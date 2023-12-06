@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+
 
 const API_URL = 'https://api.unsplash.com/search/photos';
 const IMAGES_PER_PAGE = 20;
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <div className='container'>
-      <h1 className='title'>Image Search</h1>
+      <h1 className='title'>IMAGE SEARCH</h1>
       {errorMsg && <p className='error-msg'>{errorMsg}</p>}
       <div className='search-section'>
         <Form onSubmit={handleSearch}>
@@ -70,15 +71,15 @@ function App() {
         </Form>
       </div>
       <div className='filters'>
-        <div onClick={() => handleSelection('nature')}>Nature</div>
+        <div onClick={() => handleSelection('website')}>Website</div>
+        <div onClick={() => handleSelection('dogs')}>Dogs</div>
+        <div onClick={() => handleSelection('cars')}>Cars</div>
         <div onClick={() => handleSelection('birds')}>Birds</div>
-        <div onClick={() => handleSelection('cats')}>Cats</div>
-        <div onClick={() => handleSelection('shoes')}>Shoes</div>
       </div>
       {loading ? (
-        <p className='loading'>Loading...</p>
+        <span class="loader"></span>
       ) : (
-        <>
+        <f>
           <div className='images'>
             {images.map((image) => (
               <img
@@ -97,8 +98,10 @@ function App() {
               <Button onClick={() => setPage(page + 1)}>Next</Button>
             )}
           </div>
-        </>
+        </f>
+        
       )}
+    
     </div>
   );
 }
